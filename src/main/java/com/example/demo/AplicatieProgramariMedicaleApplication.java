@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
 
+@Controller
 @SpringBootApplication
 public class AplicatieProgramariMedicaleApplication {
 
