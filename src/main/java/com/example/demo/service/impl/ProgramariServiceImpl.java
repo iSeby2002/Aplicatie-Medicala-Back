@@ -12,11 +12,7 @@ import com.example.demo.service.SlotProgramariService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
-
 @Service
-
 public class ProgramariServiceImpl implements ProgramariService{
     private final ProgramariRepository programariRepository;
     private final SlotProgramariService slotProgramariService;
@@ -32,11 +28,6 @@ public class ProgramariServiceImpl implements ProgramariService{
 
     @Override
     public String saveProgramare(ProgramareDTO programareDTO) {
-//                System.out.println(programareDTO.getNumeSiPrenume() + " " + programareDTO.getCnp() + " " +
-//                programareDTO.getTipDiabetZaharat() + " " + programareDTO.getDiabetZaharat() + " " +
-//                programareDTO.getDataDiagnosticului() + " " + programareDTO.getDataProgramarii() + " " +
-//                programareDTO.getOraProgramarii());
-
         PacientDto pacientDto = PacientDto.builder()
                 .numePrenume(programareDTO.getNumeSiPrenume())
                 .cnp(programareDTO.getCnp())
@@ -46,9 +37,7 @@ public class ProgramariServiceImpl implements ProgramariService{
                 .build();
         Pacient savedPacient = pacientService.registerPacient(pacientDto);
 
-
         SlotProgramari slot = slotProgramariService.findSlotProgramariByStartTime(programareDTO.getOraProgramarii());
-        //System.out.println(slot.getId() + " " + slot.getStartTime() + " " + slot.getEndTime() + " " + slot.isAvailable());
         slot.setAvailable(false);
         slotProgramariService.save(slot);
 

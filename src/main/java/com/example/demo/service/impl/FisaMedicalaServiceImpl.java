@@ -7,11 +7,9 @@ import com.example.demo.repository.FisaMedicalaRepository;
 import com.example.demo.repository.ProgramariRepository;
 import com.example.demo.service.FisaMedicalaService;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class FisaMedicalaServiceImpl implements FisaMedicalaService {
@@ -26,15 +24,9 @@ public class FisaMedicalaServiceImpl implements FisaMedicalaService {
     @Override
     public List<Programari> findProgramariCurente(LocalDate data) {
         LocalDate dataCurenta=data;
-        /*Iterable<Programari> allProgramari= programariRepository.findAll();
-        List<Programari> programariCurente= StreamSupport.stream(allProgramari.spliterator(),false)
-                .filter(programari->programari.getStartTime().toLocalDate().equals(dataCurenta)).collect(Collectors.toList());
-        return programariCurente;*/
         LocalDateTime startOfDay = dataCurenta.atStartOfDay();
         LocalDateTime endOfDay = dataCurenta.plusDays(1).atStartOfDay().minusSeconds(1);
-
         return programariRepository.findAllByDate(startOfDay, endOfDay);
-
     }
 
     @Override
@@ -108,8 +100,6 @@ public class FisaMedicalaServiceImpl implements FisaMedicalaService {
                 .data(fisaMedicalaDto.getData())
                 .MedicExaminator(fisaMedicalaDto.getMedicExaminator())
                 .build();
-
-       // System.out.println(fisaMedicala);
 
         fisaMedicalaRepository.save(fisaMedicala);
         return "Salvare cu succes";

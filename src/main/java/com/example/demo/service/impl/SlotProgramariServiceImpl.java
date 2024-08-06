@@ -5,7 +5,6 @@ import com.example.demo.repository.SlotProgramariRepository;
 import com.example.demo.service.SlotProgramariService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -24,7 +23,6 @@ public class SlotProgramariServiceImpl implements SlotProgramariService {
     private final int oraFinal=12;
     private final int durataSlot=15;
     private final int nrSloturi=((12-10)*60)/durataSlot;
-
 
     @Autowired
     public SlotProgramariServiceImpl(SlotProgramariRepository slotProgramariRepository) {

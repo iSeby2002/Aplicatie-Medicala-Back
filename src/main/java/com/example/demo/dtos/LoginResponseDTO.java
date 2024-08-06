@@ -4,7 +4,7 @@ import com.example.demo.model.Medic;
 import lombok.Data;
 
 @Data
-public class LoginReponseDTO {
+public class LoginResponseDTO {
     private Medic medic;
     private String mesaj;
 }

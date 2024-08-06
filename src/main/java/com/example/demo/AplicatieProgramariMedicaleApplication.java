@@ -2,7 +2,6 @@ package com.example.demo;
 
 import com.example.demo.dtos.PacientDto;
 import com.example.demo.dtos.RegisterDto;
-import com.example.demo.model.Medic;
 import com.example.demo.model.Pacient;
 import com.example.demo.service.MedicService;
 import com.example.demo.service.PacientService;
@@ -11,23 +10,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import java.time.LocalDate;
 
 @SpringBootApplication
 public class AplicatieProgramariMedicaleApplication {
 
-//	@RequestMapping("/")
-//	@ResponseBody
-//	String home() {
-//		return "Hello World!";
-//	}
-
 	public static void main(String[] args) {
-
 		SpringApplication.run(AplicatieProgramariMedicaleApplication.class, args);
-
 	}
 
 	@Bean
@@ -60,9 +49,10 @@ public class AplicatieProgramariMedicaleApplication {
 					.email("damiansebastian2002@gmail.com")
 					.password("1234")
 					.build();
-			Medic savedRegisterDto = medicService.register(registerDto1);
-			Medic savedRegisterDto2 = medicService.register(registerDto2);
-			Medic savedRegisterDto3 = medicService.register(registerDto3);
+			medicService.register(registerDto1);
+			medicService.register(registerDto2);
+			medicService.register(registerDto3);
+
 			//pacienti diabet
 			PacientDto pacientDto1 = PacientDto.builder()
 					.numePrenume("Ion Popescu")
@@ -84,5 +74,4 @@ public class AplicatieProgramariMedicaleApplication {
 			slotProgramariService.generareSloturiSaptamanale();
 		};
 	}
-
 }

@@ -2,9 +2,7 @@ package com.example.demo.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDate;
-import java.util.Optional;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,9 +10,7 @@ import java.util.Optional;
 @Setter
 @Entity
 @Builder
-
 public class FisaMedicala {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long nrCrt;
@@ -103,5 +99,4 @@ public class FisaMedicala {
 
     private LocalDate data;
     private String MedicExaminator;
-
 }

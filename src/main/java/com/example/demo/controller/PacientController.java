@@ -30,7 +30,7 @@ public class PacientController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
         }catch (Exception e){
-           return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 

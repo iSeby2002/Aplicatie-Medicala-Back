@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
 import java.util.List;
 
 
@@ -83,10 +81,10 @@ public class ProgramariController {
 
     @PostMapping("/programare")
     public ResponseEntity<?> programare(@RequestBody ProgramareDTO programareDTO) {
-       String mesaj = programariService.saveProgramare(programareDTO);
-       if(mesaj.equals("Programare reusita")) {
-           return new ResponseEntity<>(mesaj, HttpStatus.OK);
-       }
-       return new ResponseEntity<>(mesaj, HttpStatus.BAD_REQUEST);
+        String mesaj = programariService.saveProgramare(programareDTO);
+        if(mesaj.equals("Programare reusita")) {
+            return new ResponseEntity<>(mesaj, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(mesaj, HttpStatus.BAD_REQUEST);
     }
 }

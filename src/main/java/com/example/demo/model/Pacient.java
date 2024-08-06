@@ -14,19 +14,13 @@ import java.time.LocalDate;
 @Setter
 @Entity
 @Builder
-
 public class Pacient {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long nrCrt;
-
     private String numePrenume;
-
-
     private long cnp;
     private String diabetZaharat;
     private String diabetZaharatField;
     private LocalDate dataDiagnosticului;
-
 }
